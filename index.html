@@ -28,7 +28,104 @@
 </head>
 
 <body>
-    
+    <header class="bg-[rgba(0,106,255,0.05)] shadow-sm">
+        <div class="navbar w-11/12 mx-auto">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-25 p-2 shadow gap-4">
+                        <li>
+                            <a href="" class="btn btn-outline btn-primary">
+                                <span><i class="fa-solid fa-circle-question"></i></span>
+                                FAQ</a>
+                        </li>
+                        <li>
+                            <a href="" class="btn btn-outline btn-primary">
+                                <i class="fa-solid fa-book-open"></i>
+                                Learn</a>
+                        </li>
+                        <li>
+                            <a href="" class="btn btn-outline btn-primary">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                Logout</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="flex items-center gap-1" href="./index.html">
+                    <span class="text-lg font-semibold">English</span>
+                    <img src="./assets/logo.png" alt="logoImg">
+                    <span class="font-bangla text-lg font-semibold">জানালা</span>
+                </a>
+            </div>
+            <div class="navbar-end hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 gap-4 items-center">
+                    <li>
+                        <a href="" class="btn btn-outline btn-primary">
+                            <span><i class="fa-solid fa-circle-question"></i></span>
+                            FAQ</a>
+                    </li>
+                    <li>
+                        <a href="" class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-book-open"></i>
+                            Learn</a>
+                    </li>
+                    <li>
+                        <a href="" class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            Logout</a>
+                    </li>
+                    <!-- theme button -->
+                    <input type="checkbox" value="synthwave" class="toggle theme-controller" />
+                </ul>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="flex justify-between gap-10 max-sm:flex-col-reverse md:flex-row items-center w-11/12 mx-auto py-5">
+        <!-- content -->
+        <div class="flex-1 max-sm:text-center">
+            <h1 class="text-5xl font-bold leading-10 mb-6">
+                <span class="text-[#00BCFF]">English</span>
+                is Easy!!
+            </h1>
+            <p class="text-2xl font-bangla w-[45rem] max-sm:w-full max-sm:text-xl mb-7">আজ থেকেই আপনার ভাষা শেখার যাত্রা
+                শুরু করুন। আপনি যদি নতুন হন অথবা
+                আপনার দক্ষতা বাড়াতে চান, আমাদের
+                Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+
+            <!-- hero form -->
+            <form action="" class="flex flex-col w-80 gap-5">
+                <input type="text" placeholder="Enter Your Name" class="px-5 py-[10px] rounded-sm border-gray-300">
+                <input type="password" placeholder=".............." class="px-5 py-[10px] rounded-sm border-gray-300">
+                <button class="btn btn-soft btn-primary w-[10rem]" id="login-button">
+                    <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512">
+                        <g>
+                            <path d="m0 0H512V512H0" fill="#fff"></path>
+                            <path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path>
+                            <path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path>
+                            <path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path>
+                            <path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"> </path>
+                        </g>
+                    </svg>
+                    Get Started
+                </button>
+            </form>
+        </div>
+        <!-- hero img -->
+        <div>
+            <img src="./assets/hero-student.png" alt="heroImg" class="flex-1">
+        </div>
+    </section>
+
 </body>
 
 </html>
