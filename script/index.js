@@ -23,6 +23,14 @@ const levelByWord = (id) => {
             displayWordLesson(wordData.data)
         });
 }
+
+const loadWordDetails = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/word/${id}`;
+    const res = await fetch(url);
+    const details = await res.json;
+    console.log(details);
+}
+
 const displayWordLesson = (datas) => {
     const wordContainer = document.getElementById('word-container');
     wordContainer.innerHTML = "";
@@ -51,7 +59,7 @@ const displayWordLesson = (datas) => {
             </div>
 
             <div class="flex justify-between items-center">
-                <button class="btn btn-soft btn-primary">
+                <button onclick="loadWordDetails(${data.id})" class="btn btn-soft btn-primary">
                     <i class="fa-solid fa-circle-info"></i>
                 </button>
                 <button class="btn btn-soft btn-primary">
@@ -79,5 +87,11 @@ const displayLessons = (lessons) => {
         levelContainer.append(btnDiv);
     }
 }
+
+
+
+
+
+
 
 loadLessons();
