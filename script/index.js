@@ -3,19 +3,16 @@ const creatElement = (arr) => {
     const htmlElements = arr.map(el => `<span class="btn btn-soft btn-info">${el}</span>`)
     return (htmlElements.join(' '));
 }
-
 const manageSpiner = (status) => {
     if (status == true) {
         document.getElementById('spiner').classList.remove("hidden");
         document.getElementById('word-container').classList.add("hidden");
     }
-
     else {
         document.getElementById('word-container').classList.remove("hidden");
         document.getElementById('spiner').classList.add("hidden");
     }
 }
-
 const loadLessons = () => {
     const url = 'https://openapi.programming-hero.com/api/levels/all';
     fetch(url)
@@ -42,7 +39,6 @@ const levelByWord = (id) => {
             displayWordLesson(wordData.data)
         });
 }
-
 const loadWordDetail = (id) => {
     const url = `https://openapi.programming-hero.com/api/word/${id}`;
     // console.log(url);
@@ -50,7 +46,6 @@ const loadWordDetail = (id) => {
         .then(res => res.json())
         .then(details => displayWordDetails(details.data));
 }
-
 const displayWordDetails = (word) => {
     // console.log(word)
     const detailsContainer = document.getElementById('details-container');
@@ -70,11 +65,9 @@ const displayWordDetails = (word) => {
     `;
     document.getElementById('my_modal_5').showModal();
 }
-
 const displayWordLesson = (datas) => {
     const wordContainer = document.getElementById('word-container');
     wordContainer.innerHTML = "";
-
     if (datas.length == 0) {
         wordContainer.innerHTML = `
         <div class="text-center col-span-full py-16 space-y-6 rounded-xl">
@@ -111,7 +104,7 @@ const displayWordLesson = (datas) => {
         wordContainer.append(card);
     });
 
-        manageSpiner(false);
+    manageSpiner(false);
 }
 const displayLessons = (lessons) => {
     // 1. Get the container
@@ -129,11 +122,22 @@ const displayLessons = (lessons) => {
         levelContainer.append(btnDiv);
     }
 }
-
-
-
-
-
-
-
 loadLessons();
+const scarchBtn = document.getElementById('btn-scarch');
+scarchBtn.addEventListener('click', () => {
+    removeActive();
+    const input = document.getElementById('input-scarch');
+    const scarchValue = input.value.trim().toLowerCase();
+    console.log(scarchValue);
+
+
+    const url= fetch('https://openapi.programming-hero.com/api/words/all');
+    url.then(res => res.json())
+    .then(words => {
+        const allWords = words.data;
+        // console.log(allWords);
+        const filterWord = allWords.filter(word => word.word.toLowerCase().includes(scarchValue));
+        // console.log(filterWord);
+        displayWordLesson(filterWord);
+    });
+});
