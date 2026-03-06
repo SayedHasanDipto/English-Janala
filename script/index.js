@@ -3,6 +3,13 @@ const creatElement = (arr) => {
     const htmlElements = arr.map(el => `<span class="btn btn-soft btn-info">${el}</span>`)
     return (htmlElements.join(' '));
 }
+
+function pronounceWord(word) {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "en-EN"; // English
+    window.speechSynthesis.speak(utterance);
+}
+
 const manageSpiner = (status) => {
     if (status == true) {
         document.getElementById('spiner').classList.remove("hidden");
@@ -95,7 +102,7 @@ const displayWordLesson = (datas) => {
                 <button onclick="loadWordDetail(${data.id})" class="btn btn-soft btn-info">
                     <i class="fa-solid fa-circle-info"></i>
                 </button>
-                <button class="btn btn-soft btn-info">
+                <button onclick="pronounceWord('${data.word}')" class="btn btn-soft btn-info">
                     <i class="fa-solid fa-volume-high"></i>
                 </button>           
             </div>
@@ -131,13 +138,13 @@ scarchBtn.addEventListener('click', () => {
     console.log(scarchValue);
 
 
-    const url= fetch('https://openapi.programming-hero.com/api/words/all');
+    const url = fetch('https://openapi.programming-hero.com/api/words/all');
     url.then(res => res.json())
-    .then(words => {
-        const allWords = words.data;
-        // console.log(allWords);
-        const filterWord = allWords.filter(word => word.word.toLowerCase().includes(scarchValue));
-        // console.log(filterWord);
-        displayWordLesson(filterWord);
-    });
+        .then(words => {
+            const allWords = words.data;
+            // console.log(allWords);
+            const filterWord = allWords.filter(word => word.word.toLowerCase().includes(scarchValue));
+            // console.log(filterWord);
+            displayWordLesson(filterWord);
+        });
 });
